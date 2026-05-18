@@ -137,22 +137,27 @@
              <a href="tel:+17123124308">+1 (712)-312-4308</a>    
          </p>
         </div>
-        <form id="contact-form" class="contact-form" action="https://formspree.io/f/mojbqwqd" method="post">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" required />
+     <form id="contact-form" class="contact-form"
+action="https://formspree.io/f/mojbqwqd"
+method="POST">
 
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" required />
+  <label for="name">Name</label>
+  <input type="text" id="name" name="name" required />
 
-          <label for="phone">Phone</label>
-          <input type="tel" id="phone" name="phone" required />
+  <label for="email">Email</label>
+  <input type="email" id="email" name="email" required />
 
-          <label for="meeting">Meeting details</label>
-          <textarea id="meeting" name="meeting" rows="4" placeholder="Preferred days, times, and any request for Ames Public Library" required></textarea>
+  <label for="phone">Phone</label>
+  <input type="tel" id="phone" name="phone" required />
 
-          <button type="submit" class="button button-submit">Request Meeting</button>
-          <p id="form-status" class="form-status" aria-live="polite"></p>
-        </form>
+  <label for="meeting">Meeting details</label>
+  <textarea id="meeting" name="meeting" rows="4"
+  placeholder="Preferred days, times, and requests"></textarea>
+
+  <button type="submit" class="button button-submit">
+    Request Meeting
+  </button>
+</form>
       </div>
     </section>
   </main>
