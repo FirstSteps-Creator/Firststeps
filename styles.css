@@ -1,5 +1,3 @@
-/* RESET + FONT */
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
 * {
@@ -10,7 +8,7 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: #f4ecff;
+    background: #f3ecff;
     color: #2d134d;
     line-height: 1.6;
 }
@@ -18,226 +16,128 @@ body {
 /* HEADER */
 
 header {
-    background: linear-gradient(to right, #c084fc, #a855f7);
-    padding: 20px 10%;
-
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    position: sticky;
-    top: 0;
-
-    z-index: 1000;
+    padding: 20px 10%;
+    background: linear-gradient(90deg, #c084fc, #a855f7);
 }
 
 .logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: white;
     font-size: 2rem;
     font-weight: 700;
-    color: white;
 }
 
 .logo img {
-    width: 140px;
+    height: 70px;
+    width: auto;
 }
 
-/* NAVIGATION */
+nav {
+    display: flex;
+    gap: 30px;
+}
 
 nav a {
     text-decoration: none;
     color: white;
-    margin-left: 25px;
     font-weight: 600;
-    transition: 0.3s ease;
+    transition: 0.3s;
 }
 
 nav a:hover {
-    opacity: 0.7;
+    opacity: 0.8;
 }
 
-/* HERO IMAGE SECTION */
-
-.hero-image {
-    height: 85vh;
-
-    background:
-        linear-gradient(rgba(60, 20, 90, 0.6),
-        rgba(60, 20, 90, 0.6)),
-        url('community.jpg');
-
-    background-size: cover;
-    background-position: center;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    text-align: center;
-    color: white;
-}
-
-.hero-overlay {
-    max-width: 700px;
-    padding: 20px;
-}
-
-.hero-overlay h1 {
-    font-size: 4rem;
-    margin-bottom: 20px;
-}
-
-.hero-overlay p {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-}
-
-/* BUTTONS */
-
-.btn {
-    display: inline-block;
-
-    background: #7b2ff7;
-    color: white;
-
-    padding: 14px 28px;
-
-    border-radius: 40px;
-
-    text-decoration: none;
-
-    font-weight: 600;
-
-    transition: 0.3s ease;
-}
-
-.btn:hover {
-    background: #5f1fd1;
-    transform: translateY(-2px);
-}
-
-/* GENERAL SECTIONS */
-
-section {
-    padding: 80px 10%;
-}
-
-/* HERO TEXT */
+/* HERO SECTION */
 
 .hero {
     text-align: center;
+    padding: 100px 10%;
 }
 
-.hero-text h1 {
+.hero h1 {
     font-size: 3rem;
     margin-bottom: 20px;
+    color: #2d134d;
 }
 
-.hero-text p {
-    max-width: 700px;
+.hero p {
+    font-size: 1.2rem;
+    max-width: 900px;
     margin: auto;
-    margin-bottom: 20px;
-    font-size: 1.1rem;
+}
+
+.hero a {
+    display: inline-block;
+    margin-top: 30px;
+    background: #9333ea;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.hero a:hover {
+    background: #7e22ce;
 }
 
 /* CARDS */
 
-.cards-section {
+.cards {
     display: flex;
+    flex-direction: column;
     gap: 30px;
-    flex-wrap: wrap;
+    padding: 40px 10%;
 }
 
 .card {
     background: white;
-
-    padding: 30px;
-
+    padding: 40px;
     border-radius: 20px;
-
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-
-    flex: 1;
-    min-width: 250px;
-
-    transition: 0.3s ease;
-}
-
-.card:hover {
-    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
 }
 
 .card h2 {
+    color: #7c3aed;
     margin-bottom: 15px;
-    color: #7b2ff7;
-}
-
-/* CONTACT FORM */
-
-.contact-form {
-    max-width: 600px;
-    margin: auto;
-
-    background: white;
-
-    padding: 40px;
-
-    border-radius: 20px;
-
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
-
-.contact-form input,
-.contact-form textarea {
-    width: 100%;
-
-    padding: 15px;
-
-    margin-bottom: 20px;
-
-    border: 1px solid #ddd;
-
-    border-radius: 10px;
-
-    font-size: 1rem;
-}
-
-.contact-form button {
-    border: none;
-    cursor: pointer;
 }
 
 /* FOOTER */
 
 footer {
-    background: #2d134d;
-    color: white;
-
     text-align: center;
-
     padding: 30px;
+    margin-top: 50px;
+    color: #555;
 }
 
-/* MOBILE RESPONSIVE */
+/* MOBILE */
 
 @media (max-width: 768px) {
 
     header {
         flex-direction: column;
-        gap: 15px;
+        gap: 20px;
     }
 
     nav {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .hero-overlay h1 {
-        font-size: 2.5rem;
-    }
-
-    .cards-section {
         flex-direction: column;
+        text-align: center;
+        gap: 15px;
     }
 
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .card {
+        padding: 25px;
+    }
 }
