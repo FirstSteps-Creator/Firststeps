@@ -41,35 +41,47 @@ nav a:hover {
 /* HERO SECTION */
 
 .hero {
-    text-align: center;
-    padding: 100px 20px;
+  text-align: center;
+  padding: 100px 20px;
+}
+
+/* --- New Text Box Container --- */
+.hero-text-box {
+  background-color: #ffffff;                  /* Creates the white box around the words */
+  border-radius: 12px;                        /* Rounds the corners to match your cards */
+  padding: 40px;                              /* Space inside the box around text */
+  max-width: 800px;                           /* Limits box width so it doesn't stretch too far */
+  margin: 0 auto 35px auto;                   /* Centers the box and creates a 35px gap below it */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06); /* Gives it a clean, soft shadow */
 }
 
 .hero h1 {
-    font-size: 4rem;
-    margin-bottom: 20px;
+  font-size: 4rem;
+  margin-bottom: 20px;
+  color: #1a1a1a;                             /* Changes text to dark charcoal for white background contrast */
 }
 
 .hero p {
-    max-width: 700px;
-    margin: auto;
-    font-size: 1.2rem;
+  max-width: 100%;                            /* Allows text to fill the container box naturally */
+  margin: 0;
+  font-size: 1.2rem;
+  color: #4a4a4a;                             /* Softer dark color for readability */
 }
 
 .hero-btn {
-    display: inline-block;
-    margin-top: 30px;
-    padding: 15px 35px;
-    background: #7b2cff;
-    color: white;
-    text-decoration: none;
-    border-radius: 12px;
-    font-weight: bold;
-    transition: 0.3s;
+  display: inline-block;
+  margin-top: 0;                              /* Set to 0 because the box margin handles the splitting space now */
+  padding: 15px 35px;
+  background: #7b2cff;
+  color: white;
+  text-decoration: none;
+  border-radius: 12px;
+  font-weight: bold;
+  transition: 0.3s;
 }
 
 .hero-btn:hover {
-    background: #5d16d1;
+  background: #5d16d1;
 }
 
 /* CARDS */
