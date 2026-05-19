@@ -21,17 +21,17 @@ header {
     align-items: center;
 }
 
-.logo {
-    font-size: 2rem;
-    font-weight: bold;
+.logo-img {
+    height: 50px;
+    width: auto;
+    display: block;
 }
 
 nav a {
-    text-decoration: none;
-    color: #2d134d;
-    margin-left: 25px;
-    font-weight: bold;
-    transition: 0.3s;
+margin-left: 20px;
+text-decoration: none;
+color: #1a1a1a;
+font-weight: 600;
 }
 
 nav a:hover {
