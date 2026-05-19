@@ -41,10 +41,40 @@ nav a:hover {
 /* HERO SECTION */
 
 .hero {
+  position: relative;
+  overflow: hidden;
+
   text-align: center;
   padding: 100px 20px;
+
+  background: #f3edf9;
 }
 
+/* Purple footprints background */
+.hero::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background-image: url("images/firststepswebpage.png");
+
+  background-repeat: no-repeat;
+
+  background-position: center;
+
+  background-size: 1000px;
+
+  opacity: 0.12;
+
+  z-index: 1;
+}
+
+/* Keeps content above footprints */
+.hero > * {
+  position: relative;
+  z-index: 2;
+}
 /* --- New Text Box Container --- */
 .hero-text-box {
   background-color: #ffffff;                  /* Creates the white box around the words */
