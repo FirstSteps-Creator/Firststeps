@@ -60,11 +60,11 @@ nav a:hover {
 
   background-repeat: no-repeat;
 
-  background-position: left 120px top 40px;
+  background-position: 30% 58%;
 
-  background-size: 1400px;
+  background-size: 780px;
 
-  opacity: 0.28;
+  opacity: 0.22;
 
   z-index: 0;
 }
