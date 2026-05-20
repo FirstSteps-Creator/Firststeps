@@ -18,6 +18,7 @@
             <a href="index.html">Home</a>
             <a href="about.html">About Us</a>
             <a href="volunteer.html">Volunteer</a>
+            <a href="donate.html">Donate</a>
             <a href="contact.html">Contact Us</a>
         </nav>
     </header>
@@ -41,5 +42,50 @@
                 <p><strong>• Resource Drivers:</strong> Provide crucial transportation assistance to ensure individuals can safely get to essential medical, legal, or shelter appointments.</p>
             </div>
 
-            <div class="service-card form-
+            <div class="service-card form-panel">
+                <h3>Volunteer Registration</h3>
+                <p style="color: #c4b9d8; font-size: 13px; margin-bottom: 20px;">Fill out the form below, and our team will get back to you with upcoming orientation dates.</p>
+                
+                <form action="https://formspree.io/f/your-form-id-here" method="POST" class="volunteer-form">
+                    <div class="form-group">
+                        <label for="volunteer-name">Full Name</label>
+                        <input type="text" id="volunteer-name" name="name" required placeholder="John Doe">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="volunteer-email">Email Address</label>
+                        <input type="email" id="volunteer-email" name="email" required placeholder="johndoe@example.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="volunteer-area">Primary Area of Interest</label>
+                        <select id="volunteer-area" name="interest" required>
+                            <option value="" disabled selected>Select an option...</option>
+                            <option value="documentation">Documentation Assistance</option>
+                            <option value="events">Event Support & Outreach</option>
+                            <option value="transportation">Resource & Ride Support</option>
+                            <option value="any">Wherever the need is greatest</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="volunteer-message">Tell Us About Yourself (Optional)</label>
+                        <textarea id="volunteer-message" name="message" rows="4" placeholder="Share any relevant experience or your general availability..."></textarea>
+                    </div>
+
+                    <button type="submit" class="hero-btn form-submit">Submit Application</button>
+                </form>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <p>2026 First Steps Initiative. Helping today. Building tomorrow.</p>
+    </footer>
+
+</body>
+</html>
+
 
