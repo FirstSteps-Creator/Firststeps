@@ -1,80 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>First Steps</title>
-
+    <title>First Steps Initiative</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
 
-<header class="main-header">
-  <div class="logo-container">
-    <a href="index.html">
-      <img src="images/FirstStepsLogo.png" alt="First Steps Logo" class="logo-img">
-    </a>
-  </div>
-  <nav class="nav-links nav-bubble">
-    <a href="about.html">About Us</a>
-    <a href="volunteer.html">Volunteer</a>
-    <a href="contact.html">Contact Us</a>
-  </nav>
-</header>
+    <header class="main-header">
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="images/firststepslogo.png" alt="First Steps Logo" class="logo-img">
+            </a>
+        </div>
+        <nav class="nav-bubble">
+            <a href="about.html">About Us</a>
+            <a href="volunteer.html">Volunteer</a>
+        </nav>
+    </header>
 
-<section class="hero">
-  <div class="hero-text-box">
-    <h1>Helping people build stable futures.</h1>
-    <p>
-      First Steps Initiative connects individuals experiencing homelessness with 
-      identification assistance, transportation resources, transportation support, 
-      community outreach, and pathways toward independence.
-    </p>
-  </div>
+    <main class="page-container">
+        
+        <section class="hero-card">
+            <h1>Helping people build stable futures.</h1>
+            <p>First Steps Initiative connects individuals experiencing homelessness with identification assistance, transportation resources, community outreach, and pathways toward independence.</p>
+            
+            <div class="tagline-container">
+                <span class="tag-item">Legal Documentation</span>
+                <span class="tag-divider">•</span>
+                <span class="tag-item">Resources</span>
+                <span class="tag-divider">•</span>
+                <span class="tag-item">Stable Housing</span>
+                <span class="tag-divider">•</span>
+                <span class="tag-item">Stable Income</span>
+            </div>
 
-  <a href="contact.html" class="hero-btn">Request a Meeting</a>
-</section>
+            <a href="#meeting-form-section" class="hero-btn">Scroll to Request a Meeting</a>
+        </section>
 
+        <section id="meeting-form-section" class="services-grid layout-split">
+            
+            <div class="service-card info-panel">
+                <h3>Request a Meeting</h3>
+                <br>
+                <p><strong>• Private Consultation:</strong> Every meeting is completely confidential, safe, and focused entirely on your goals.</p>
+                <br>
+                <p><strong>• Tailored Action Plan:</strong> We will sit down with you to map out exactly how to secure your IDs, look into housing resources, or find job opportunities.</p>
+                <br>
+                <p><strong>• 100% Free:</strong> All meetings, resources, and administrative assistance provided by First Steps Initiative are entirely free.</p>
+            </div>
 
-<section class="cards">
+            <div class="service-card form-panel">
+                <h3>Meeting Request Form</h3>
+                <p style="color: #c4b9d8; font-size: 13px; margin-bottom: 20px;">Please share how we can best support you.</p>
+                
+                <form action="https://formspree.io/f/your-form-id-here" method="POST" class="volunteer-form">
+                    <div class="form-group">
+                        <label for="client-name">Your Name</label>
+                        <input type="text" id="client-name" name="name" required placeholder="Preferred Name">
+                    </div>
 
-    <div class="card">
-        <h2>Community Support</h2>
+                    <div class="form-group">
+                        <label for="contact-method">Best Way to Reach You</label>
+                        <input type="text" id="contact-method" name="contact_method" required placeholder="Phone number, email, or shelter location">
+                    </div>
 
-        <p>
-            We help individuals connect with shelters,
-            appointments, transportation, and local services.
-        </p>
-    </div>
+                    <div class="form-group">
+                        <label for="service-needed">What can we help you with today?</label>
+                        <select id="service-needed" name="support_type" required>
+                            <option value="" disabled selected>Select primary need...</option>
+                            <option value="id-docs">Getting an ID / Birth Certificate</option>
+                            <option value="housing">Stable Housing Assistance</option>
+                            <option value="income">Stable Income / Job Resources</option>
+                            <option value="other">General Community Support</option>
+                        </select>
+                    </div>
 
-    <div class="card">
-        <h2>Documentation Assistance</h2>
+                    <div class="form-group">
+                        <label for="client-message">Additional Notes or Details (Optional)</label>
+                        <textarea id="client-message" name="details" rows="4" placeholder="Is there a specific time or place that is best to reach you? Let us know here..."></textarea>
+                    </div>
 
-        <p>
-            Help obtaining IDs, birth certificates,
-            social security paperwork, and other essential documents.
-        </p>
-    </div>
+                    <button type="submit" class="hero-btn form-submit">Submit Request</button>
+                </form>
+            </div>
 
-    <div class="card">
-        <h2>Volunteer Opportunities</h2>
+        </section>
 
-        <p>
-            Support outreach events, transportation assistance,
-            food drives, and community programs.
-        </p>
-    </div>
+        <section class="services-grid" style="margin-top: 40px;">
+            
+            <div class="service-card">
+                <div class="card-icon">🤝</div>
+                <h3>Community Support</h3>
+                <p>We help individuals connect with shelters, appointments, transportation, and local services.</p>
+            </div>
 
-</section>
+            <div class="service-card">
+                <div class="card-icon">📄</div>
+                <h3>Documentation Assistance</h3>
+                <p>Help obtaining IDs, birth certificates, social security paperwork, and other essential documents.</p>
+            </div>
 
-<footer>
-    First Steps Initiative 2026
-</footer>
+            <div class="service-card">
+                <div class="card-icon">🌱</div>
+                <h3>Volunteer Opportunities</h3>
+                <p>Support outreach events, transportation assistance, food drives, and community programs.</p>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; 2026 First Steps Initiative. Helping today. Building tomorrow.</p>
+    </footer>
 
 </body>
 </html>
+

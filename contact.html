@@ -1,60 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact Us - First Steps</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - First Steps Initiative</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<header class="navbar">
-  <h1 class="logo">First Steps</h1>
+    <header class="main-header">
+        <div class="logo-container">
+            <a href="index.html">
+                <img src="images/firststepslogo.png" alt="First Steps Logo" class="logo-img">
+            </a>
+        </div>
+        <nav class="nav-bubble">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="volunteer.html">Volunteer</a>
+            <a href="contact.html">Contact Us</a>
+        </nav>
+    </header>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About Us</a>
-    <a href="volunteer.html">Volunteer</a>
-  </nav>
-</header>
+    <main class="page-container">
+        
+        <section class="hero-card">
+            <h1>Get In Touch</h1>
+            <p>Whether you want to partner with us, ask a question about our programs, or connect with our leadership team, we would love to hear from you. Reach out through any of our channels below.</p>
+        </section>
 
-<section class="page-section">
-  <div class="page-box">
-    <h2>Request a Meeting</h2>
+        <section class="services-grid">
+            
+            <div class="service-card" style="text-align: center;">
+                <div class="card-icon">📞</div>
+                <h3>Call or Text</h3>
+                <p style="margin-bottom: 15px;">Our office phone is open for inquiries, support updates, and community coordination.</p>
+                <a href="tel:+15555555555" style="color: #8a4fff; font-weight: 700; text-decoration: none; font-size: 18px;">(555) 555-5555</a>
+            </div>
 
-    <form
-      class="contact-form"
-      action="https://formspree.io/f/mojbqwqd"
-      method="POST"
-    >
+            <div class="service-card" style="text-align: center;">
+                <div class="card-icon">✉️</div>
+                <h3>Email Us</h3>
+                <p style="margin-bottom: 15px;">For general inquiries, corporate sponsorships, or legal documentation questions.</p>
+                <a href="mailto:info@firststepsinitiative.org" style="color: #8a4fff; font-weight: 700; text-decoration: none; font-size: 16px; word-break: break-all;">info@firststepsinitiative.org</a>
+            </div>
 
-      <label>Name</label>
-      <input type="text" name="name" required>
+            <div class="service-card" style="text-align: center;">
+                <div class="card-icon">⏰</div>
+                <h3>Availability</h3>
+                <p style="margin-bottom: 5px;"><strong>Monday – Friday:</strong> 9:00 AM – 5:00 PM</p>
+                <p><strong>Saturday – Sunday:</strong> Closed</p>
+            </div>
 
-      <label>Email</label>
-      <input type="email" name="email" required>
+        </section>
 
-      <label>Phone</label>
-      <input type="tel" name="phone">
+    </main>
 
-       <label>Meeting Details</label>
-      <textarea
-        name="meeting"
-        rows="5"
-        placeholder="Preferred days and times"
-      ></textarea>
-
-      <button type="submit" class="hero-button">
-        Request Meeting
-      </button>
-
-    </form>
-
-  </div>
-</section>
+    <footer class="main-footer">
+        <p>&copy; 2026 First Steps Initiative. Helping today. Building tomorrow.</p>
+    </footer>
 
 </body>
 </html>

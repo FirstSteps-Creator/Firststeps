@@ -1,5 +1,5 @@
 /* ==========================================
-   1. GLOBAL & BODY STYLES
+   1. CORE GLOBAL STYLES & BACKGROUND
    ========================================== */
 * {
     margin: 0;
@@ -8,133 +8,277 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background: #f4ecff; /* Soft canvas lavender */
-    color: #2d1d4d;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: #1a0f2e; /* Deep, rich premium dark purple canvas */
+    color: #ffffff;
     line-height: 1.6;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Forces all loose sections to center perfectly */
+    min-height: 100vh;
+}
+
+/* Container keeping your elements neatly spaced */
+.page-container {
+    max-width: 1100px;
+    width: 90%;
+    margin: 50px auto;
+    flex: 1;
 }
 
 /* ==========================================
-   2. HEADER, LOGO, & NAV BUBBLE
+   2. REFRESHED NAV BAR STYLES
    ========================================== */
-header {
-    background: #b59cff; 
-    padding: 20px 5%;
+.main-header {
+    background-color: #271747; /* Slightly lighter deep purple for depth */
+    padding: 15px 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%; /* Spans across the entire screen width */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .logo-img {
-    height: 66px;
+    height: 55px;
     width: auto;
     display: block;
-    mix-blend-mode: multiply; 
+    /* Keeps logo perfectly clean on dark backgrounds */
+    filter: brightness(0) invert(1) drop-shadow(0 2px 4px rgba(0,0,0,0.2)); 
 }
 
-header nav {
-    display: inline-flex !important;
-    background-color: #f7f4fd !important; 
-    padding: 6px 18px !important;            
-    border-radius: 50px !important;          
-    align-items: center !important;
-    border: 1px solid #e1dbe9 !important; 
+/* The Navigation Capsule Pill */
+header nav.nav-bubble {
+    display: inline-flex;
+    background-color: rgba(255, 255, 255, 0.07); /* Smooth glassmorphic look */
+    padding: 5px 15px;            
+    border-radius: 50px;          
+    align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-header nav a {
-    color: #4a3e56 !important;    
-    margin: 0 8px !important;               
-    padding: 6px 14px !important;
-    text-decoration: none !important;
-    font-weight: 600 !important;
-    font-size: 15px !important;
-    transition: all 0.2s ease !important;    
-    border-radius: 25px !important;
+header nav.nav-bubble a {
+    color: #e2d9f3;    
+    margin: 0 4px;               
+    padding: 8px 16px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.25s ease;    
+    border-radius: 25px;
 }
 
-header nav a:hover {
-    background-color: #ffffff !important; 
-    color: #1a0f26 !important;            
-    box-shadow: 0 2px 5px rgba(74, 62, 86, 0.1) !important; 
+/* Crisp White Hover Button Tab */
+header nav.nav-bubble a:hover {
+    background-color: #ffffff; 
+    color: #1a0f2e;            
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); 
 }
 
 /* ==========================================
-   3. HERO BOX (MAIN WHITE BLOCK)
+   3. MODERN HERO BLOCK
    ========================================== */
-.hero-text-box {
-    background: white;
-    width: 90%;
-    max-width: 800px;
-    margin: 60px auto 30px auto; 
-    padding: 50px 40px;
-    border-radius: 16px;
+.hero-card {
+    background: #ffffff;
+    color: #1a0f2e; /* Deep purple contrast text */
+    padding: 55px 40px;
+    border-radius: 24px; /* Sleek modern rounding */
     text-align: center;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    margin-bottom: 40px;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centers everything inside the white box */
+    align-items: center;
 }
 
-.hero-text-box h1 {
-    font-size: 36px;
-    margin-bottom: 20px;
+.hero-card h1 {
+    font-size: 38px;
+    font-weight: 800;
+    margin-bottom: 18px;
+    letter-spacing: -0.5px;
+    color: #120a21;
 }
 
-.hero-text-box p {
-    color: #555555;
+.hero-card p {
+    color: #554d63;
+    font-size: 17px;
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+/* Horizontal Tagline Subtext Divider Grid */
+.tagline-container {
+    margin: 25px 0 5px 0;
+    font-size: 13px;
+    font-weight: 700;
+    color: #7b669e;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.tag-divider {
+    color: #8a4fff; 
+    margin: 0 10px;
+}
+
+/* ==========================================
+   4. SEAMLESS CALL-TO-ACTION BUTTON
+   ========================================== */
+.hero-btn {
+    display: inline-block;
+    background-color: #8a4fff; /* Bright royal purple accent */
+    color: #ffffff !important;
+    padding: 14px 36px;
+    text-decoration: none;
+    font-weight: 600;
     font-size: 16px;
-    margin-bottom: 0px;
+    border-radius: 50px;
+    margin-top: 25px;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 15px rgba(138, 79, 255, 0.3);
+}
+
+.hero-btn:hover {
+    background-color: #7236e2;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(138, 79, 255, 0.45);
 }
 
 /* ==========================================
-   4. REQUEST A MEETING BUTTON
+   5. THREE-COLUMN SERVICE CARD GRID
    ========================================== */
-/* Targets the meeting button specifically to keep it pill-shaped and centered */
-a[href*="meeting"], .hero-btn {
-    display: inline-block !important;
-    background-color: #7B42F6 !important;
-    color: white !important;
-    padding: 12px 32px !important;
-    text-decoration: none !important;
-    font-weight: 600 !important;
-    border-radius: 50px !important;
-    margin: 30px auto !important; 
-    transition: all 0.2s ease !important;
-    box-shadow: 0 4px 12px rgba(123, 66, 246, 0.2) !important;
+.services-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
 }
 
-a[href*="meeting"]:hover, .hero-btn:hover {
-    background-color: #622ad4 !important;
-    transform: translateY(-1px);
+.service-card {
+    background: #271747; /* Matches internal container color palette */
+    padding: 30px 25px;
+    border-radius: 20px;
+    flex: 1;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(138, 79, 255, 0.3);
+}
+
+.card-icon {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.service-card h3 {
+    font-size: 19px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #ffffff;
+}
+
+.service-card p {
+    color: #c4b9d8;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Responsive optimization for smaller monitors/laptops */
+/* Responsive optimization for mobile phones */
+@media (max-width: 768px) {
+    .main-header {
+        flex-direction: column; /* Stacks logo above the menu on small phones */
+        gap: 15px;
+        text-align: center;
+    }
+
+    .services-grid {
+        flex-direction: column; /* Stacks the lower cards vertically */
+    }
+    
+    .hero-card h1 {
+        font-size: 28px; /* Slightly shrinks text so headers don't look giant on a phone */
+    }
 }
 
 /* ==========================================
-   5. LOWER CONTENT & CARDS (FORCED CLEAN LAYOUT)
+   6. CLEAN FOOTER STYLES
    ========================================== */
-/* Centers and contains headings and paragraphs below the hero box */
-h2, h2 + p {
-    width: 90%;
-    max-width: 800px;
+.main-footer {
+    text-align: center;
+    padding: 35px 20px;
+    background-color: #120a21;
+    color: #7b669e;
+    font-size: 13px;
+    border-top: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+/* ==========================================
+   7. VOLUNTEER FORM SPECIFIC STYLES
+   ========================================== */
+.layout-split {
+    align-items: stretch;
+}
+
+.info-panel {
+    background: #271747;
+}
+
+.form-panel {
+    background: #271747;
     text-align: left;
-    margin-left: auto !important;
-    margin-right: auto !important;
 }
 
-h2 {
-    margin-top: 35px !important;
-    margin-bottom: 8px !important;
-    font-size: 22px;
-    color: #2d1d4d;
+.volunteer-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
-/* Footer style at the absolute bottom */
-body > p:last-of-type {
-    text-align: center !important;
-    margin: 60px auto 40px auto !important;
-    color: #777777 !important;
-    font-size: 14px !important;
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group label {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #e2d9f3;
+    letter-spacing: 0.5px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    background-color: #1a0f2e;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 14px;
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #8a4fff;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.form-submit {
+    margin: 10px 0 0 0 !important;
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+    border: none;
 }
