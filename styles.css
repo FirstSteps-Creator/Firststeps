@@ -19,12 +19,12 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
 
 .logo-img {
     height: 66px;
     width: auto;
     display: block;
+    mix-blend-mode: multiply;
 }
 
 nav a {
