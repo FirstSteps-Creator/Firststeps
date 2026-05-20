@@ -9,35 +9,36 @@
 
 body {
     font-family: Arial, sans-serif;
-    background: #f4ecff; /* Soft lavender canvas background */
+    background: #f4ecff; /* Soft canvas lavender */
     color: #2d1d4d;
     line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Forces all loose sections to center perfectly */
 }
 
 /* ==========================================
-   2. HEADER & LOGO
+   2. HEADER, LOGO, & NAV BUBBLE
    ========================================== */
 header {
-    background: #b59cff; /* Main header lavender color */
+    background: #b59cff; 
     padding: 20px 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%; /* Spans across the entire screen width */
 }
 
 .logo-img {
     height: 66px;
     width: auto;
     display: block;
-    mix-blend-mode: multiply; /* Blends away the white background box */
+    mix-blend-mode: multiply; 
 }
 
-/* ==========================================
-   3. NAVIGATION BUBBLE CONTAINER
-   ========================================== */
 header nav {
     display: inline-flex !important;
-    background-color: #f7f4fd !important; /* Super light lavender capsule */
+    background-color: #f7f4fd !important; 
     padding: 6px 18px !important;            
     border-radius: 50px !important;          
     align-items: center !important;
@@ -62,16 +63,20 @@ header nav a:hover {
 }
 
 /* ==========================================
-   4. HERO BOX (CENTERED LAYOUT)
+   3. HERO BOX (MAIN WHITE BLOCK)
    ========================================== */
 .hero-text-box {
     background: white;
+    width: 90%;
     max-width: 800px;
-    margin: 60px auto 40px auto; /* Centers the box on the page */
-    padding: 40px;
-    border-radius: 12px;
+    margin: 60px auto 30px auto; 
+    padding: 50px 40px;
+    border-radius: 16px;
     text-align: center;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers everything inside the white box */
 }
 
 .hero-text-box h1 {
@@ -82,80 +87,54 @@ header nav a:hover {
 .hero-text-box p {
     color: #555555;
     font-size: 16px;
-    margin-bottom: 30px;
+    margin-bottom: 0px;
 }
 
 /* ==========================================
-   5. BUTTONS & SERVICES CARDS
+   4. REQUEST A MEETING BUTTON
    ========================================== */
-.hero-btn {
-    display: inline-block;
-    background-color: #7B42F6;
-    color: white !important;
-    padding: 12px 28px;
-    text-decoration: none;
-    font-weight: 600;
-    border-radius: 50px;
-    transition: all 0.2s ease;
-}
-
-.hero-btn:hover {
-    background-color: #622ad4;
-}
-
-.services-container {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    padding: 0 20px;
-}
-
-.service-card {
-    background: white;
-    padding: 25px;
-    border-radius: 8px;
-    flex: 1;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
-}
-
-/* ==========================================
-   6. FIXING THE LOWER BUTTON & CARDS
-   ========================================== */
-
-/* Centers the Request a Meeting button area */
-.hero-text-box a, 
-a[href*="meeting"] {
+/* Targets the meeting button specifically to keep it pill-shaped and centered */
+a[href*="meeting"], .hero-btn {
     display: inline-block !important;
     background-color: #7B42F6 !important;
     color: white !important;
-    padding: 12px 28px !important;
+    padding: 12px 32px !important;
     text-decoration: none !important;
     font-weight: 600 !important;
     border-radius: 50px !important;
-    margin-top: 20px !important;
+    margin: 30px auto !important; 
     transition: all 0.2s ease !important;
+    box-shadow: 0 4px 12px rgba(123, 66, 246, 0.2) !important;
 }
 
-/* Forces the bottom service items to stack in a clean, spaced layout */
+a[href*="meeting"]:hover, .hero-btn:hover {
+    background-color: #622ad4 !important;
+    transform: translateY(-1px);
+}
+
+/* ==========================================
+   5. LOWER CONTENT & CARDS (FORCED CLEAN LAYOUT)
+   ========================================== */
+/* Centers and contains headings and paragraphs below the hero box */
 h2, h2 + p {
-    max-width: 1100px;
+    width: 90%;
+    max-width: 800px;
+    text-align: left;
     margin-left: auto !important;
     margin-right: auto !important;
-    padding: 0 20px;
 }
 
 h2 {
-    margin-top: 40px !important;
-    margin-bottom: 10px !important;
+    margin-top: 35px !important;
+    margin-bottom: 8px !important;
+    font-size: 22px;
+    color: #2d1d4d;
 }
 
-/* Minimal styling for the footer text at the absolute bottom */
+/* Footer style at the absolute bottom */
 body > p:last-of-type {
     text-align: center !important;
-    margin-top: 60px !important;
-    margin-bottom: 40px !important;
-    color: #666666 !important;
+    margin: 60px auto 40px auto !important;
+    color: #777777 !important;
     font-size: 14px !important;
 }
