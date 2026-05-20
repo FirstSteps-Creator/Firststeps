@@ -1,3 +1,6 @@
+/* ==========================================
+   1. GLOBAL & BODY STYLES
+   ========================================== */
 * {
     margin: 0;
     padding: 0;
@@ -6,63 +9,114 @@
 
 body {
     font-family: Arial, sans-serif;
-    background: #f4ecff;
-    color: #2d134d;
+    background: #f4ecff; /* Soft lavender canvas background */
+    color: #2d1d4d;
     line-height: 1.6;
 }
 
-/* HEADER */
-
+/* ==========================================
+   2. HEADER & LOGO
+   ========================================== */
 header {
-    background: #b58cff;
-    padding: 20px 10%;
+    background: #b59cff; /* Main header lavender color */
+    padding: 20px 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-.logo-img {
-    height: 66px;
-    width: auto;
-    display: block;
-    mix-blend-mode: multiply;
 }
 
 .logo-img {
     height: 66px;
     width: auto;
     display: block;
-    mix-blend-mode: multiply;
+    mix-blend-mode: multiply; /* Blends away the white background box */
 }
 
 /* ==========================================
-   NAVIGATION BUBBLE CONTAINERS
+   3. NAVIGATION BUBBLE CONTAINER
    ========================================== */
-
-/* The background bubble container */
 header nav {
-  display: inline-flex !important;
-  background-color: #f7f4fd !important; /* Super light lavender */
-  padding: 6px 18px !important;            
-  border-radius: 50px !important;          
-  align-items: center !important;
-  border: 1px solid #e1dbe9 !important; 
+    display: inline-flex !important;
+    background-color: #f7f4fd !important; /* Super light lavender capsule */
+    padding: 6px 18px !important;            
+    border-radius: 50px !important;          
+    align-items: center !important;
+    border: 1px solid #e1dbe9 !important; 
 }
 
-/* The links inside the bubble */
 header nav a {
-  color: #4a3e56 !important;    
-  margin: 0 8px !important;               
-  padding: 6px 14px !important;
-  text-decoration: none !important;
-  font-weight: 600 !important;
-  font-size: 15px !important;
-  transition: all 0.2s ease !important;    
-  border-radius: 25px !important;
+    color: #4a3e56 !important;    
+    margin: 0 8px !important;               
+    padding: 6px 14px !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+    font-size: 15px !important;
+    transition: all 0.2s ease !important;    
+    border-radius: 25px !important;
 }
 
-/* Individual link hover effects */
 header nav a:hover {
-  background-color: #ffffff !important; 
-  color: #1a0f26 !important;            
-  box-shadow: 0 2px 5px rgba(74, 62, 86, 0.1) !important; 
+    background-color: #ffffff !important; 
+    color: #1a0f26 !important;            
+    box-shadow: 0 2px 5px rgba(74, 62, 86, 0.1) !important; 
 }
+
+/* ==========================================
+   4. HERO BOX (CENTERED LAYOUT)
+   ========================================== */
+.hero-text-box {
+    background: white;
+    max-width: 800px;
+    margin: 60px auto 40px auto; /* Centers the box on the page */
+    padding: 40px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.hero-text-box h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.hero-text-box p {
+    color: #555555;
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+/* ==========================================
+   5. BUTTONS & SERVICES CARDS
+   ========================================== */
+.hero-btn {
+    display: inline-block;
+    background-color: #7B42F6;
+    color: white !important;
+    padding: 12px 28px;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: all 0.2s ease;
+}
+
+.hero-btn:hover {
+    background-color: #622ad4;
+}
+
+.services-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 0 20px;
+}
+
+.service-card {
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    flex: 1;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+}
+
