@@ -215,3 +215,30 @@ footer {
         font-size: 2.5rem;
     }
 }
+
+/* This styles the bubble container itself */
+.nav-bubble {
+  background-color: #f1eff7;    /* A very pale, soft lavender tint */
+  padding: 8px 20px;            
+  border-radius: 50px;          
+  display: flex;                
+  align-items: center;
+}
+
+/* Adjust the links inside the bubble */
+.nav-links.nav-bubble a {
+  margin: 0 12px;               /* Spaces the links evenly inside the bubble */
+  padding: 6px 12px;
+  color: #333333;               /* Clean dark text */
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;    /* Makes the hover effect smooth */
+  border-radius: 20px;          /* Prepares individual links for a hover shape */
+}
+
+/* Optional: Adds a subtle pill effect over individual links when hovered */
+.nav-links.nav-bubble a:hover {
+  background-color: #ffffff;    /* Turns the individual hovered link white */
+  color: #000000;               /* Darkens the text slightly on hover */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Adds a tiny shadow to the hovered link */
+}
