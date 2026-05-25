@@ -52,8 +52,7 @@
                     How can we help you today?
                 </p>
 
-                <form id="client-contact-form" action="https://api.web3forms.com/submit" method="POST" class="volunteer-form">
-                    <input type="hidden" name="access_key" value="6f6a7350-df6a-493e-af4c-0062a420b9e8">
+                <form action="https://formspree.io/f/xvgonwjb" method="POST" class="volunteer-form">
                     
                     <div class="form-group" style="margin-bottom: 15px;">
                         <label for="client-name" style="display: block; margin-bottom: 5px; font-weight: 500;">Your Name</label>
@@ -71,8 +70,6 @@
                     </div>
 
                     <button type="submit" class="hero-btn form-btn" style="width: 100%; cursor: pointer;">Submit Request</button>
-                    
-                    <p id="form-status-message" style="margin-top: 15px; font-weight: bold; text-align: center; display: none;"></p>
                 </form>
             </div>
         </section>
@@ -82,47 +79,8 @@
         <p>&copy; 2026 First Steps Initiative. Helping today. Building tomorrow.</p>
     </footer>
 
-    <script>
-        const form = document.getElementById('client-contact-form');
-        const statusMessage = document.getElementById('form-status-message');
-
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const formData = new FormData(form);
-            const object = Object.fromEntries(formData);
-            const json = JSON.stringify(object);
-
-            statusMessage.style.display = "block";
-            statusMessage.textContent = "Sending your request...";
-            statusMessage.style.color = "#8a4fff";
-
-            fetch('https://api.web3forms.com/submit', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                },
-                body: json
-            })
-            .then(async (response) => {
-                let res = await response.json();
-                if (response.status == 200) {
-                    statusMessage.textContent = "Thank you! Your request has been sent to our office.";
-                    statusMessage.style.color = "#28a745";
-                    form.reset();
-                } else {
-                    statusMessage.textContent = res.message;
-                    statusMessage.style.color = "#dc3545";
-                }
-            })
-            .catch(error => {
-                statusMessage.textContent = "Something went wrong. Please try again.";
-                statusMessage.style.color = "#dc3545";
-            });
-        });
-    </script>
-
 </body>
 </html>
+
 
 
