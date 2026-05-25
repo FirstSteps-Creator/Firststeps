@@ -49,12 +49,31 @@
             <div class="service-card form-panel">
                 <h3>Meeting Request</h3>
                 <p style="color: #666; font-size: 14px; margin-bottom: 20px; font-weight: 500;">
-                    Ready to schedule? Click below to send an intake request directly to our office.
+                    How can we help you today?
                 </p>
 
-                <a href="mailto:alowell@firststepsinitiative.org?subject=Inquiry%20from%20Website" class="hero-btn form-btn" style="text-decoration: none; display: inline-block; text-align: center;">
-                    Email Intake Request   
-                </a>
+                <form id="client-contact-form" action="https://api.web3forms.com/submit" method="POST" class="volunteer-form">
+                    <input type="hidden" name="access_key" value="6f6a7350-df6a-493e-af4c-0062a420b9e8">
+                    
+                    <div class="form-group" style="margin-bottom: 15px;">
+                        <label for="client-name" style="display: block; margin-bottom: 5px; font-weight: 500;">Your Name</label>
+                        <input type="text" id="client-name" name="name" required placeholder="Preferred Name" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px;">
+                    </div>
+
+                    <div class="form-group" style="margin-bottom: 15px;">
+                        <label for="contact-method" style="display: block; margin-bottom: 5px; font-weight: 500;">Best Way to Reach You</label>
+                        <input type="text" id="contact-method" name="contact_method" required placeholder="Phone number, email, or shelter location" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px;">
+                    </div>
+
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <label for="client-message" style="display: block; margin-bottom: 5px; font-weight: 500;">Additional Notes or Details (Optional)</label>
+                        <textarea id="client-message" name="details" rows="4" placeholder="Tell us a little bit about what you need assistance with..." style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; resize: vertical;"></textarea>
+                    </div>
+
+                    <button type="submit" class="hero-btn form-btn" style="width: 100%; cursor: pointer;">Submit Request</button>
+                    
+                    <p id="form-status-message" style="margin-top: 15px; font-weight: bold; text-align: center; display: none;"></p>
+                </form>
             </div>
         </section>
     </main>
@@ -62,6 +81,46 @@
     <footer class="main-footer">
         <p>&copy; 2026 First Steps Initiative. Helping today. Building tomorrow.</p>
     </footer>
+
+    <script>
+        const form = document.getElementById('client-contact-form');
+        const statusMessage = document.getElementById('form-status-message');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(form);
+            const object = Object.fromEntries(formData);
+            const json = JSON.stringify(object);
+
+            statusMessage.style.display = "block";
+            statusMessage.textContent = "Sending your request...";
+            statusMessage.style.color = "#8a4fff";
+
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: json
+            })
+            .then(async (response) => {
+                let res = await response.json();
+                if (response.status == 200) {
+                    statusMessage.textContent = "Thank you! Your request has been sent to our office.";
+                    statusMessage.style.color = "green";
+                    form.reset();
+                } else {
+                    statusMessage.textContent = res.message;
+                    statusMessage.style.color = "red";
+                }
+            })
+            .catch(error => {
+                statusMessage.textContent = "Something went wrong. Please try again.";
+                statusMessage.style.color = "red";
+            });
+        });
+    </script>
 
 </body>
 </html>
