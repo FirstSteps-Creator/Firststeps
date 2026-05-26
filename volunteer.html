@@ -4,71 +4,118 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Volunteer - First Steps Initiative</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        :root {
+            --bg-color: #0b0813;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --card-border: rgba(162, 112, 255, 0.15);
+            --accent-purple: #a270ff;
+            --accent-glow: rgba(162, 112, 255, 0.4);
+            --text-main: #f3f0ff;
+            --text-muted: #aaa3c0;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+        body { background-color: var(--bg-color); color: var(--text-main); min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between; }
+        
+        .main-header { padding: 30px 20px; text-align: center; }
+        .logo-img { max-height: 160px; width: auto; display: block; margin: 0 auto; filter: drop-shadow(0 0 15px rgba(162, 112, 255, 0.2)); }
+        
+        .nav-bubble { display: inline-flex; background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid var(--card-border); padding: 8px 16px; border-radius: 30px; margin-top: 25px; gap: 10px; }
+        .nav-bubble a { color: var(--text-muted); text-decoration: none; padding: 8px 16px; font-size: 14px; font-weight: 600; border-radius: 20px; transition: all 0.3s ease; }
+        .nav-bubble a:hover, .nav-bubble a.active { color: #fff; background: rgba(162, 112, 255, 0.15); box-shadow: inset 0 0 10px rgba(162, 112, 255, 0.1); }
+        
+        .page-container { max-width: 1100px; width: 100%; margin: 0 auto; padding: 40px 20px; flex-grow: 1; }
+        
+        .hero-card { background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(162,112,255,0.02) 100%); border: 1px solid var(--card-border); border-radius: 24px; padding: 40px; text-align: center; box-shadow: 0 20px 40px rgba(0,0,0,0.3); margin-bottom: 40px; }
+        h1 { font-size: 38px; font-weight: 800; margin-bottom: 15px; background: linear-gradient(to right, #fff, var(--accent-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        /* Two Column Layout Block */
+        .layout-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 30px; text-align: left; align-items: start; }
+        
+        .info-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 24px; padding: 40px; box-shadow: 0 15px 35px rgba(0,0,0,0.2); }
+        .info-card h3 { font-size: 22px; font-weight: 700; color: var(--accent-purple); margin-bottom: 20px; }
+        .info-card p { font-size: 15px; line-height: 1.6; color: var(--text-muted); margin-bottom: 18px; }
+        .info-card hr { border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 25px 0; }
+        
+        /* Modern Glassmorphic Light Form Styling */
+        .form-card { background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(162, 112, 255, 0.25); border-radius: 24px; padding: 40px; box-shadow: 0 20px 50px rgba(0,0,0,0.45); backdrop-filter: blur(15px); }
+        .form-card h3 { font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+        .form-card .form-subtitle { color: var(--text-muted); font-size: 14px; font-weight: 500; margin-bottom: 25px; }
+        
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 13px; color: #fff; letter-spacing: 0.5px; text-transform: uppercase; }
+        .form-group input { width: 100%; padding: 14px; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 10px; box-sizing: border-box; background: rgba(0, 0, 0, 0.2); color: #fff; font-size: 16px; transition: all 0.3s ease; }
+        .form-group input:focus { border-color: var(--accent-purple); outline: none; box-shadow: 0 0 10px rgba(162, 112, 255, 0.3); background: rgba(0, 0, 0, 0.4); }
+        
+        .hero-btn { width: 100%; display: block; background: var(--accent-purple); color: #0b0813; text-decoration: none; font-weight: 700; font-size: 16px; padding: 16px; border-radius: 10px; border: none; cursor: pointer; transition: all 0.3s ease; text-align: center; box-shadow: 0 0 20px var(--accent-glow); }
+        .hero-btn:hover { background: #b385ff; box-shadow: 0 0 30px rgba(162, 112, 255, 0.6); }
+        
+        .status-msg { margin-top: 20px; font-weight: bold; text-align: center; display: none; font-size: 15px; padding: 10px; border-radius: 8px; }
+        
+        .main-footer { padding: 40px 20px; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.03); font-size: 14px; color: rgba(255, 255, 255, 0.3); }
+    </style>
 </head>
 <body>
 
-    <header class="main-header" style="padding: 20px 0;">
+    <header class="main-header">
         <div class="logo-container">
             <a href="index.html">
-                <img src="images/FirstStepsLogo.png" alt="First Steps Logo" class="logo-img" style="max-height: 160px; width: auto; display: block; margin: 0 auto;">
+                <img src="images/FirstStepsLogo.png" alt="First Steps Logo" class="logo-img">
             </a>
         </div>
-        <nav class="nav-bubble" style="margin-top: 15px;">
+        <nav class="nav-bubble">
             <a href="index.html">Home</a>
             <a href="about.html">About Us</a>
-            <a href="volunteer.html">Volunteer</a>
+            <a href="volunteer.html" class="active">Volunteer</a>
             <a href="donate.html">Donate</a>
             <a href="contact.html">Contact Us</a>
         </nav>
     </header>
 
-    <main class="page-container" style="max-width: 1200px; margin: 0 auto; padding: 20px;">
+    <main class="page-container">
         <section class="hero-card">
             <h1>Join Our Team</h1>
             <p>Make a direct impact in your community. Whether you want to assist with administrative support, help clients gather vital documents, or mentor individuals navigating milestones, we have a place for your talents.</p>
         </section>
 
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-top: 40px; text-align: left;">
+        <div class="layout-grid">
             
-            <div style="background: rgba(255, 255, 255, 0.05); padding: 40px; border-radius: 24px; border: 1px solid rgba(255, 255, 255, 0.1); color: #fff;">
-                <h3 style="font-size: 24px; margin-bottom: 20px; color: #8a4fff;">Volunteer Roles</h3>
-                <p style="margin-bottom: 15px;"><strong>• Document Navigators:</strong> Assist clients directly during check-ins with obtaining vital birth certificates, dynamic state IDs, and records processing.</p>
-                <p style="margin-bottom: 15px;"><strong>• Operations Support:</strong> Work quietly in the background handling local resource sorting, technical data tracking, or site coordination layouts.</p>
-                <p style="margin-bottom: 25px;"><strong>• Flexible Scheduling:</strong> We work around your availability. Whether you can give 2 hours a month or 10 hours a week, every moment helps.</p>
+            <div class="info-card">
+                <h3>Volunteer Roles</h3>
+                <p><strong>• Document Navigators:</strong> Assist clients directly during check-ins with obtaining vital birth certificates, dynamic state IDs, and records processing.</p>
+                <p><strong>• Operations Support:</strong> Work quietly in the background handling local resource sorting, technical data tracking, or site coordination layouts.</p>
+                <p><strong>• Flexible Scheduling:</strong> We work around your availability. Whether you can give 2 hours a month or 10 hours a week, every moment helps.</p>
                 
-                <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 25px 0;">
+                <hr>
                 
-                <h3 style="font-size: 24px; margin-bottom: 15px; color: #8a4fff;">Requirements</h3>
-                <p style="margin-bottom: 10px;">• Must be 18 years or older.</p>
-                <p style="margin-bottom: 10px;">• Must complete a basic background screening orientation.</p>
+                <h3>Requirements</h3>
+                <p>• Must be 18 years or older.</p>
+                <p>• Must complete a basic background screening orientation.</p>
                 <p>• Compassion, kindness, and patience for all neighbors.</p>
             </div>
 
-            <div style="background: #ffffff; padding: 40px; border-radius: 24px; color: #000000; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
-                <h3 style="font-size: 24px; margin-bottom: 5px; color: #000;">Volunteer Application</h3>
-                <p style="color: #666; font-size: 14px; margin-bottom: 25px; font-weight: 500;">
-                    Ready to build tomorrow? Sign up below!
-                </p>
+            <div class="form-card">
+                <h3>Volunteer Application</h3>
+                <p class="form-subtitle">Ready to build tomorrow? Sign up below!</p>
 
                 <form id="volunteer-form" action="https://formspree.io/f/xvzywwwg" method="POST">
-                    <div style="margin-bottom: 20px;">
-                        <label for="volunteer-name" style="display: block; margin-bottom: 8px; font-weight: 600; font-size: 14px;">Full Name</label>
-                        <input type="text" id="volunteer-name" name="name" required placeholder="First and Last Name" style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; background: #fff; color: #000; font-size: 16px;">
+                    <div class="form-group">
+                        <label for="volunteer-name">Full Name</label>
+                        <input type="text" id="volunteer-name" name="name" required placeholder="First and Last Name">
                     </div>
 
-                    <div style="margin-bottom: 20px;">
-                        <label for="volunteer-email" style="display: block; margin-bottom: 8px; font-weight: 600; font-size: 14px;">Email Address</label>
-                        <input type="email" id="volunteer-email" name="email" required placeholder="name@example.com" style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; background: #fff; color: #000; font-size: 16px;">
+                    <div class="form-group">
+                        <label for="volunteer-email">Email Address</label>
+                        <input type="email" id="volunteer-email" name="email" required placeholder="name@example.com">
                     </div>
 
-                    <div style="margin-bottom: 25px;">
-                        <label for="time-requested-volunteer" style="display: block; margin-bottom: 8px; font-weight: 600; font-size: 14px;">Time and Day Requested</label>
-                        <input type="text" id="time-requested-volunteer" name="time_day_requested" required placeholder="e.g., Weekends or weekday mornings" style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; background: #fff; color: #000; font-size: 16px;">
+                    <div class="form-group">
+                        <label for="time-requested-volunteer">Time and Day Requested</label>
+                        <input type="text" id="time-requested-volunteer" name="time_day_requested" required placeholder="e.g., Weekends or weekday mornings">
                     </div>
 
-                    <button type="submit" id="volunteer-submit-btn" class="hero-btn" style="width: 100%; padding: 14px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 16px;">Submit Application</button>
-                    <p id="volunteer-status" style="margin-top: 15px; font-weight: bold; text-align: center; display: none;"></p>
+                    <button type="submit" id="volunteer-submit-btn" class="hero-btn">Submit Application</button>
+                    <p id="volunteer-status" class="status-msg"></p>
                 </form>
             </div>
 
@@ -89,7 +136,8 @@
             vBtn.disabled = true;
             vStatus.style.display = "block";
             vStatus.textContent = "Sending application...";
-            vStatus.style.color = "#8a4fff";
+            vStatus.style.color = "#a270ff";
+            vStatus.style.background = "rgba(162, 112, 255, 0.1)";
 
             const data = new FormData(event.target);
             fetch(event.target.action, {
@@ -100,15 +148,18 @@
                 if (response.ok) {
                     vStatus.textContent = "Thank you! Your volunteer application has been received.";
                     vStatus.style.color = "#28a745";
+                    vStatus.style.background = "rgba(40, 167, 69, 0.1)";
                     vForm.reset();
                 } else {
                     vStatus.textContent = "Oops! Something went wrong. Please try again.";
                     vStatus.style.color = "#dc3545";
+                    vStatus.style.background = "rgba(220, 53, 69, 0.1)";
                 }
                 vBtn.disabled = false;
             }).catch(error => {
                 vStatus.textContent = "Oops! There was a problem submitting your form.";
                 vStatus.style.color = "#dc3545";
+                vStatus.style.background = "rgba(220, 53, 69, 0.1)";
                 vBtn.disabled = false;
             });
         });
