@@ -25,61 +25,97 @@
 
     <main class="page-container">
         <section class="hero-card">
-            <h1>Join the Initiative</h1>
-            <p>Volunteers are the heartbeat of the First Steps Initiative. Whether you are helping an individual navigate legal documentation, helping with community outreach events, or organizing resource drives, your time directly creates pathways toward independence for our unhoused neighbors.</p>
+            <h1>Join Our Team</h1>
+            <p>Make a direct impact in your community. Whether you want to assist with administrative support, help clients gather vital documents, or mentor individuals navigating milestones, we have a place for your talents.</p>
         </section>
 
         <section class="services-grid layout-split">
             <div class="service-card info-panel">
-                <h3>Ways You Can Make an Impact</h3>
+                <h3>Volunteer Roles</h3>
                 <br>
-                <p><strong>• Document Navigators:</strong> Assist individuals with the administrative steps of filling out paperwork for state IDs, birth certificates, and security documents.</p>
+                <p><strong>• Document Navigators:</strong> Assist clients directly during check-ins with obtaining vital birth certificates, dynamic state IDs, and records processing.</p>
                 <br>
-                <p><strong>• Event Support:</strong> Help coordinate, set up, and manage community outreach drives, food donations, and clothing distribution centers.</p>
+                <p><strong>• Operations Support:</strong> Work quietly in the background handling local resource sorting, technical data tracking, or site coordination layouts.</p>
                 <br>
-                <p><strong>• Resource Drivers:</strong> Provide crucial transportation assistance to ensure individuals can safely get to essential medical, legal, or shelter appointments.</p>
+                <p><strong>• Flexible Scheduling:</strong> We work around your availability. Whether you can give 2 hours a month or 10 hours a week, every moment helps.</p>
+                <br>
+                <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 15px 0;">
+                <br>
+                <h3>Requirements</h3>
+                <p style="margin-top: 10px;">• Must be 18 years or older.</p>
+                <p>• Must complete a basic background screening orientation.</p>
+                <p>• Compassion, kindness, and patience for all neighbors.</p>
             </div>
 
             <div class="service-card form-panel">
-                <h3>Volunteer Registration</h3>
-                <p style="color: #c4b9d8; font-size: 13px; margin-bottom: 20px;">Fill out the form below, and our team will get back to you with upcoming orientation dates.</p>
-                
-                <form action="https://formspree.io/f/your-form-id-here" method="POST" class="volunteer-form">
-                    <div class="form-group">
-                        <label for="volunteer-name">Full Name</label>
-                        <input type="text" id="volunteer-name" name="name" required placeholder="John Doe">
+                <h3>Volunteer Application</h3>
+                <p style="color: #bbb; font-size: 14px; margin-bottom: 20px; font-weight: 500;">
+                    Ready to build tomorrow? Sign up below!
+                </p>
+
+                <form id="volunteer-form" action="https://formspree.io/f/xvzywwwg" method="POST" class="volunteer-form">
+                    
+                    <div class="form-group" style="margin-bottom: 15px;">
+                        <label for="volunteer-name" style="display: block; margin-bottom: 5px; font-weight: 500;">Full Name</label>
+                        <input type="text" id="volunteer-name" name="name" required placeholder="First and Last Name" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; background: white; color: black;">
                     </div>
 
-                    <div class="form-group">
-                        <label for="volunteer-email">Email Address</label>
-                        <input type="email" id="volunteer-email" name="email" required placeholder="johndoe@example.com">
+                    <div class="form-group" style="margin-bottom: 15px;">
+                        <label for="volunteer-email" style="display: block; margin-bottom: 5px; font-weight: 500;">Email Address</label>
+                        <input type="email" id="volunteer-email" name="email" required placeholder="name@example.com" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; background: white; color: black;">
                     </div>
 
-                    <div class="form-group">
-                        <label for="volunteer-area">Primary Area of Interest</label>
-                        <select id="volunteer-area" name="interest" required>
-                            <option value="" disabled selected>Select an option...</option>
-                            <option value="documentation">Documentation Assistance</option>
-                            <option value="events">Event Support & Outreach</option>
-                            <option value="transportation">Resource & Ride Support</option>
-                            <option value="any">Wherever the need is greatest</option>
-                        </select>
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <label for="volunteer-notes" style="display: block; margin-bottom: 5px; font-weight: 500;">Interests or Background Experience</label>
+                        <textarea id="volunteer-notes" name="experience" rows="4" placeholder="Tell us a little bit about yourself or why you want to join our volunteer network..." style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; resize: vertical; box-sizing: border-box; background: white; color: black;"></textarea>
                     </div>
 
-                    <div class="form-group">
-                        <label for="volunteer-message">Tell Us About Yourself (Optional)</label>
-                        <textarea id="volunteer-message" name="message" rows="4" placeholder="Share any relevant experience or your general availability..."></textarea>
-                    </div>
-
-                    <button type="submit" class="hero-btn form-submit">Submit Application</button>
+                    <button type="submit" id="volunteer-submit-btn" class="hero-btn form-btn" style="width: 100%; cursor: pointer;">Submit Application</button>
+                    
+                    <p id="volunteer-status" style="margin-top: 15px; font-weight: bold; text-align: center; display: none;"></p>
                 </form>
             </div>
         </section>
     </main>
 
     <footer class="main-footer">
-        <p>&copy; 2026 First Steps Initiative. Helping today. Building tomorrow.</p>
+        <p>2026 First Steps Initiative. Helping today. Building tomorrow.</p>
     </footer>
+
+    <script>
+        const vForm = document.getElementById("volunteer-form");
+        const vStatus = document.getElementById("volunteer-status");
+        const vBtn = document.getElementById("volunteer-submit-btn");
+
+        vForm.addEventListener("submit", async function(event) {
+            event.preventDefault();
+            vBtn.disabled = true;
+            vStatus.style.display = "block";
+            vStatus.textContent = "Sending application...";
+            vStatus.style.color = "#8a4fff";
+
+            const data = new FormData(event.target);
+            fetch(event.target.action, {
+                method: vForm.method,
+                body: data,
+                headers: { 'Accept': 'application/json' }
+            }).then(response => {
+                if (response.ok) {
+                    vStatus.textContent = "Thank you! Your volunteer application has been received.";
+                    vStatus.style.color = "#28a745";
+                    vForm.reset();
+                } else {
+                    vStatus.textContent = "Oops! Something went wrong. Please try again.";
+                    vStatus.style.color = "#dc3545";
+                }
+                vBtn.disabled = false;
+            }).catch(error => {
+                vStatus.textContent = "Oops! There was a problem submitting your form.";
+                vStatus.style.color = "#dc3545";
+                vBtn.disabled = false;
+            });
+        });
+    </script>
 
 </body>
 </html>
