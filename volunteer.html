@@ -8,13 +8,13 @@
 </head>
 <body>
 
-    <header class="main-header">
+    <header class="main-header" style="padding: 20px 0;">
         <div class="logo-container">
             <a href="index.html">
-                <img src="images/firststepslogo.png" alt="First Steps Logo" class="logo-img" style="max-height: 80px; width: auto; display: block;">
+                <img src="images/FirstStepsLogo.png" alt="First Steps Logo" class="logo-img" style="max-height: 160px; width: auto; display: block; margin: 0 auto;">
             </a>
         </div>
-        <nav class="nav-bubble">
+        <nav class="nav-bubble" style="margin-top: 15px;">
             <a href="index.html">Home</a>
             <a href="about.html">About Us</a>
             <a href="volunteer.html">Volunteer</a>
@@ -23,59 +23,56 @@
         </nav>
     </header>
 
-    <main class="page-container">
+    <main class="page-container" style="max-width: 1200px; margin: 0 auto; padding: 20px;">
         <section class="hero-card">
             <h1>Join Our Team</h1>
             <p>Make a direct impact in your community. Whether you want to assist with administrative support, help clients gather vital documents, or mentor individuals navigating milestones, we have a place for your talents.</p>
         </section>
 
-        <section class="services-grid layout-split">
-            <div class="service-card info-panel">
-                <h3>Volunteer Roles</h3>
-                <br>
-                <p><strong>• Document Navigators:</strong> Assist clients directly during check-ins with obtaining vital birth certificates, dynamic state IDs, and records processing.</p>
-                <br>
-                <p><strong>• Operations Support:</strong> Work quietly in the background handling local resource sorting, technical data tracking, or site coordination layouts.</p>
-                <br>
-                <p><strong>• Flexible Scheduling:</strong> We work around your availability. Whether you can give 2 hours a month or 10 hours a week, every moment helps.</p>
-                <br>
-                <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 15px 0;">
-                <br>
-                <h3>Requirements</h3>
-                <p style="margin-top: 10px;">• Must be 18 years or older.</p>
-                <p>• Must complete a basic background screening orientation.</p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-top: 40px; text-align: left;">
+            
+            <div style="background: rgba(255, 255, 255, 0.05); padding: 40px; border-radius: 24px; border: 1px solid rgba(255, 255, 255, 0.1); color: #fff;">
+                <h3 style="font-size: 24px; margin-bottom: 20px; color: #8a4fff;">Volunteer Roles</h3>
+                <p style="margin-bottom: 15px;"><strong>• Document Navigators:</strong> Assist clients directly during check-ins with obtaining vital birth certificates, dynamic state IDs, and records processing.</p>
+                <p style="margin-bottom: 15px;"><strong>• Operations Support:</strong> Work quietly in the background handling local resource sorting, technical data tracking, or site coordination layouts.</p>
+                <p style="margin-bottom: 25px;"><strong>• Flexible Scheduling:</strong> We work around your availability. Whether you can give 2 hours a month or 10 hours a week, every moment helps.</p>
+                
+                <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 25px 0;">
+                
+                <h3 style="font-size: 24px; margin-bottom: 15px; color: #8a4fff;">Requirements</h3>
+                <p style="margin-bottom: 10px;">• Must be 18 years or older.</p>
+                <p style="margin-bottom: 10px;">• Must complete a basic background screening orientation.</p>
                 <p>• Compassion, kindness, and patience for all neighbors.</p>
             </div>
 
-            <div class="service-card form-panel">
-                <h3>Volunteer Application</h3>
-                <p style="color: #bbb; font-size: 14px; margin-bottom: 20px; font-weight: 500;">
+            <div style="background: #ffffff; padding: 40px; border-radius: 24px; color: #000000; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+                <h3 style="font-size: 24px; margin-bottom: 5px; color: #000;">Volunteer Application</h3>
+                <p style="color: #666; font-size: 14px; margin-bottom: 25px; font-weight: 500;">
                     Ready to build tomorrow? Sign up below!
                 </p>
 
-                <form id="volunteer-form" action="https://formspree.io/f/xvzywwwg" method="POST" class="volunteer-form">
-                    
-                    <div class="form-group" style="margin-bottom: 15px;">
-                        <label for="volunteer-name" style="display: block; margin-bottom: 5px; font-weight: 500;">Full Name</label>
-                        <input type="text" id="volunteer-name" name="name" required placeholder="First and Last Name" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; background: white; color: black;">
+                <form id="volunteer-form" action="https://formspree.io/f/xvzywwwg" method="POST">
+                    <div style="margin-bottom: 20px;">
+                        <label for="volunteer-name" style="display: block; margin-bottom: 8px; font-weight: 600; font-size: 14px;">Full Name</label>
+                        <input type="text" id="volunteer-name" name="name" required placeholder="First and Last Name" style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; background: #fff; color: #000; font-size: 16px;">
                     </div>
 
-                    <div class="form-group" style="margin-bottom: 15px;">
-                        <label for="volunteer-email" style="display: block; margin-bottom: 5px; font-weight: 500;">Email Address</label>
-                        <input type="email" id="volunteer-email" name="email" required placeholder="name@example.com" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; background: white; color: black;">
+                    <div style="margin-bottom: 20px;">
+                        <label for="volunteer-email" style="display: block; margin-bottom: 8px; font-weight: 600; font-size: 14px;">Email Address</label>
+                        <input type="email" id="volunteer-email" name="email" required placeholder="name@example.com" style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; background: #fff; color: #000; font-size: 16px;">
                     </div>
 
-                    <div class="form-group" style="margin-bottom: 20px;">
-                        <label for="time-requested-volunteer" style="display: block; margin-bottom: 5px; font-weight: 500;">Time and Day Requested</label>
-                        <input type="text" id="time-requested-volunteer" name="time_day_requested" required placeholder="e.g., Weekends or weekday mornings" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; background: white; color: black;">
+                    <div style="margin-bottom: 25px;">
+                        <label for="time-requested-volunteer" style="display: block; margin-bottom: 8px; font-weight: 600; font-size: 14px;">Time and Day Requested</label>
+                        <input type="text" id="time-requested-volunteer" name="time_day_requested" required placeholder="e.g., Weekends or weekday mornings" style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; background: #fff; color: #000; font-size: 16px;">
                     </div>
 
-                    <button type="submit" id="volunteer-submit-btn" class="hero-btn form-btn" style="width: 100%; cursor: pointer;">Submit Application</button>
-                    
+                    <button type="submit" id="volunteer-submit-btn" class="hero-btn" style="width: 100%; padding: 14px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 16px;">Submit Application</button>
                     <p id="volunteer-status" style="margin-top: 15px; font-weight: bold; text-align: center; display: none;"></p>
                 </form>
             </div>
-        </section>
+
+        </div>
     </main>
 
     <footer class="main-footer">

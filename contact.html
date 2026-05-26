@@ -8,13 +8,13 @@
 </head>
 <body>
 
-    <header class="main-header">
+    <header class="main-header" style="padding: 20px 0;">
         <div class="logo-container">
             <a href="index.html">
-                <img src="images/firststepslogo.png" alt="First Steps Logo" class="logo-img" style="max-height: 80px; width: auto; display: block;">
+                <img src="images/FirstStepsLogo.png" alt="First Steps Logo" class="logo-img" style="max-height: 160px; width: auto; display: block; margin: 0 auto;">
             </a>
         </div>
-        <nav class="nav-bubble">
+        <nav class="nav-bubble" style="margin-top: 15px;">
             <a href="index.html">Home</a>
             <a href="about.html">About Us</a>
             <a href="volunteer.html">Volunteer</a>
@@ -23,62 +23,59 @@
         </nav>
     </header>
 
-    <main class="page-container">
+    <main class="page-container" style="max-width: 1200px; margin: 0 auto; padding: 20px;">
         <section class="hero-card">
             <h1>Request a Meeting</h1>
             <p>We are here to help you take your next steps. Fill out the short form below to schedule a meeting with our team. Let us know what resources or documentation you need assistance with, and we will connect with you as soon as possible.</p>
         </section>
 
-        <section class="services-grid layout-split">
-            <div class="service-card info-panel">
-                <h3>What to Expect</h3>
-                <br>
-                <p><strong>• Private Consultation:</strong> Every meeting is completely confidential, safe, and focused entirely on your goals.</p>
-                <br>
-                <p><strong>• Tailored Action Plan:</strong> We will sit down with you to map out exactly how to secure your IDs, look into housing resources, or find job opportunities.</p>
-                <br>
-                <p><strong>• 100% Free:</strong> All meetings, resources, and administrative assistance provided by First Steps Initiative are entirely free.</p>
-                <br>
-                <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 15px 0;">
-                <br>
-                <h3>Direct Contact</h3>
-                <p style="margin-top: 10px;">Phone: <a href="tel:+15633469266" style="color: #8a4fff; text-decoration: none; font-weight: bold;">(563) 346-9266</a></p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-top: 40px; text-align: left;">
+            
+            <div style="background: rgba(255, 255, 255, 0.05); padding: 40px; border-radius: 24px; border: 1px solid rgba(255, 255, 255, 0.1); color: #fff;">
+                <h3 style="font-size: 24px; margin-bottom: 20px; color: #8a4fff;">What to Expect</h3>
+                <p style="margin-bottom: 15px;"><strong>• Private Consultation:</strong> Every meeting is completely confidential, safe, and focused entirely on your goals.</p>
+                <p style="margin-bottom: 15px;"><strong>• Tailored Action Plan:</strong> We will sit down with you to map out exactly how to secure your IDs, look into housing resources, or find job opportunities.</p>
+                <p style="margin-bottom: 25px;"><strong>• 100% Free:</strong> All meetings, resources, and administrative assistance provided by First Steps Initiative are entirely free.</p>
+                
+                <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 25px 0;">
+                
+                <h3 style="font-size: 24px; margin-bottom: 15px; color: #8a4fff;">Direct Contact</h3>
+                <p style="margin-bottom: 10px;">Phone: <a href="tel:+15633469266" style="color: #8a4fff; text-decoration: none; font-weight: bold;">(563) 346-9266</a></p>
                 <p>Email: <a href="mailto:alowell@firststepsinitiative.org" style="color: #8a4fff; text-decoration: none; font-weight: bold; word-break: break-all;">alowell@firststepsinitiative.org</a></p>
             </div>
 
-            <div class="service-card form-panel">
-                <h3>Meeting Request Form</h3>
-                <p style="color: #bbb; font-size: 14px; margin-bottom: 20px; font-weight: 500;">
+            <div style="background: #ffffff; padding: 40px; border-radius: 24px; color: #000000; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+                <h3 style="font-size: 24px; margin-bottom: 5px; color: #000;">Meeting Request Form</h3>
+                <p style="color: #666; font-size: 14px; margin-bottom: 25px; font-weight: 500;">
                     How can we help you today?
                 </p>
 
-                <form id="meeting-form" action="https://formspree.io/f/xvzywwwg" method="POST" class="volunteer-form">
-                    
-                    <div class="form-group" style="margin-bottom: 15px;">
-                        <label for="client-name" style="display: block; margin-bottom: 5px; font-weight: 500;">Your Name</label>
-                        <input type="text" id="client-name" name="name" required placeholder="Preferred Name" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; background: white; color: black;">
+                <form id="meeting-form" action="https://formspree.io/f/xvzywwwg" method="POST">
+                    <div style="margin-bottom: 20px;">
+                        <label for="client-name" style="display: block; margin-bottom: 8px; font-weight: 600; font-size: 14px;">Your Name</label>
+                        <input type="text" id="client-name" name="name" required placeholder="Preferred Name" style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; background: #fff; color: #000; font-size: 16px;">
                     </div>
 
-                    <div class="form-group" style="margin-bottom: 15px;">
-                        <label for="contact-method" style="display: block; margin-bottom: 5px; font-weight: 500;">Best Way to Reach You</label>
-                        <input type="text" id="contact-method" name="contact_method" required placeholder="Phone number, email, or shelter location" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; background: white; color: black;">
+                    <div style="margin-bottom: 20px;">
+                        <label for="contact-method" style="display: block; margin-bottom: 8px; font-weight: 600; font-size: 14px;">Best Way to Reach You</label>
+                        <input type="text" id="contact-method" name="contact_method" required placeholder="Phone number, email, or shelter location" style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; background: #fff; color: #000; font-size: 16px;">
                     </div>
 
-                    <div class="form-group" style="margin-bottom: 20px;">
-                        <label for="time-requested" style="display: block; margin-bottom: 5px; font-weight: 500;">Time and Day Requested</label>
-                        <input type="text" id="time-requested" name="time_day_requested" required placeholder="e.g., Tuesdays or Thursdays around 2 PM" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; background: white; color: black;">
+                    <div style="margin-bottom: 25px;">
+                        <label for="time-requested" style="display: block; margin-bottom: 8px; font-weight: 600; font-size: 14px;">Time and Day Requested</label>
+                        <input type="text" id="time-requested" name="time_day_requested" required placeholder="e.g., Tuesdays or Thursdays around 2 PM" style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; background: #fff; color: #000; font-size: 16px;">
                     </div>
 
-                    <button type="submit" id="meeting-submit-btn" class="hero-btn form-btn" style="width: 100%; cursor: pointer;">Submit Request</button>
-                    
+                    <button type="submit" id="meeting-submit-btn" class="hero-btn" style="width: 100%; padding: 14px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 16px;">Submit Request</button>
                     <p id="meeting-status" style="margin-top: 15px; font-weight: bold; text-align: center; display: none;"></p>
                 </form>
             </div>
-        </section>
+
+        </div>
     </main>
 
     <footer class="main-footer">
-        <p>2026 First Steps Initiative. Helping today. Building tomorrow.</p>
+        <p>&copy; 2026 First Steps Initiative. Helping today. Building tomorrow.</p>
     </footer>
 
     <script>
