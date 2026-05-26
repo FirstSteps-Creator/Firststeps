@@ -52,7 +52,7 @@
                     How can we help you today?
                 </p>
 
-                <form action="https://formspree.io/f/xvzywwwg" method="POST" class="volunteer-form">
+                <form id="meeting-form" action="https://formspree.io/f/xvzywwwg" method="POST" class="volunteer-form">
                     
                     <div class="form-group" style="margin-bottom: 15px;">
                         <label for="client-name" style="display: block; margin-bottom: 5px; font-weight: 500;">Your Name</label>
@@ -65,11 +65,13 @@
                     </div>
 
                     <div class="form-group" style="margin-bottom: 20px;">
-                        <label for="client-message" style="display: block; margin-bottom: 5px; font-weight: 500;">Additional Notes or Details (Optional)</label>
-                        <textarea id="client-message" name="details" rows="4" placeholder="Tell us a little bit about what you need assistance with..." style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; resize: vertical; box-sizing: border-box; background: white; color: black;"></textarea>
+                        <label for="time-requested" style="display: block; margin-bottom: 5px; font-weight: 500;">Time and Day Requested</label>
+                        <input type="text" id="time-requested" name="time_day_requested" required placeholder="e.g., Tuesdays or Thursdays around 2 PM" style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; background: white; color: black;">
                     </div>
 
-                    <button type="submit" class="hero-btn form-btn" style="width: 100%; cursor: pointer;">Submit Request</button>
+                    <button type="submit" id="meeting-submit-btn" class="hero-btn form-btn" style="width: 100%; cursor: pointer;">Submit Request</button>
+                    
+                    <p id="meeting-status" style="margin-top: 15px; font-weight: bold; text-align: center; display: none;"></p>
                 </form>
             </div>
         </section>
@@ -78,6 +80,41 @@
     <footer class="main-footer">
         <p>2026 First Steps Initiative. Helping today. Building tomorrow.</p>
     </footer>
+
+    <script>
+        const meetingForm = document.getElementById("meeting-form");
+        const meetingStatus = document.getElementById("meeting-status");
+        const meetingBtn = document.getElementById("meeting-submit-btn");
+
+        meetingForm.addEventListener("submit", async function(event) {
+            event.preventDefault();
+            meetingBtn.disabled = true;
+            meetingStatus.style.display = "block";
+            meetingStatus.textContent = "Sending request...";
+            meetingStatus.style.color = "#8a4fff";
+
+            const data = new FormData(event.target);
+            fetch(event.target.action, {
+                method: meetingForm.method,
+                body: data,
+                headers: { 'Accept': 'application/json' }
+            }).then(response => {
+                if (response.ok) {
+                    meetingStatus.textContent = "Thank you! Your meeting request has been submitted.";
+                    meetingStatus.style.color = "#28a745";
+                    meetingForm.reset();
+                } else {
+                    meetingStatus.textContent = "Oops! Something went wrong. Please try again.";
+                    meetingStatus.style.color = "#dc3545";
+                }
+                meetingBtn.disabled = false;
+            }).catch(error => {
+                meetingStatus.textContent = "Oops! There was a problem submitting your form.";
+                meetingStatus.style.color = "#dc3545";
+                meetingBtn.disabled = false;
+            });
+        });
+    </script>
 
 </body>
 </html>
