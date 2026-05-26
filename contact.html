@@ -4,70 +4,117 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Request a Meeting - First Steps Initiative</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        :root {
+            --bg-color: #0b0813;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --card-border: rgba(162, 112, 255, 0.15);
+            --accent-purple: #a270ff;
+            --accent-glow: rgba(162, 112, 255, 0.4);
+            --text-main: #f3f0ff;
+            --text-muted: #aaa3c0;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+        body { background-color: var(--bg-color); color: var(--text-main); min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between; }
+        
+        .main-header { padding: 30px 20px; text-align: center; }
+        .logo-img { max-height: 160px; width: auto; display: block; margin: 0 auto; filter: drop-shadow(0 0 15px rgba(162, 112, 255, 0.2)); }
+        
+        .nav-bubble { display: inline-flex; background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid var(--card-border); padding: 8px 16px; border-radius: 30px; margin-top: 25px; gap: 10px; }
+        .nav-bubble a { color: var(--text-muted); text-decoration: none; padding: 8px 16px; font-size: 14px; font-weight: 600; border-radius: 20px; transition: all 0.3s ease; }
+        .nav-bubble a:hover, .nav-bubble a.active { color: #fff; background: rgba(162, 112, 255, 0.15); box-shadow: inset 0 0 10px rgba(162, 112, 255, 0.1); }
+        
+        .page-container { max-width: 1100px; width: 100%; margin: 0 auto; padding: 40px 20px; flex-grow: 1; }
+        
+        .hero-card { background: linear-gradient(135deg, rgba(255,255,255,0.03) 0%, rgba(162,112,255,0.02) 100%); border: 1px solid var(--card-border); border-radius: 24px; padding: 40px; text-align: center; box-shadow: 0 20px 40px rgba(0,0,0,0.3); margin-bottom: 40px; }
+        h1 { font-size: 38px; font-weight: 800; margin-bottom: 15px; background: linear-gradient(to right, #fff, var(--accent-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        /* Two Column Layout Block */
+        .layout-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 30px; text-align: left; align-items: start; }
+        
+        .info-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 24px; padding: 40px; box-shadow: 0 15px 35px rgba(0,0,0,0.2); }
+        .info-card h3 { font-size: 22px; font-weight: 700; color: var(--accent-purple); margin-bottom: 20px; }
+        .info-card p { font-size: 15px; line-height: 1.6; color: var(--text-muted); margin-bottom: 18px; }
+        .info-card hr { border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 25px 0; }
+        
+        /* Modern Glassmorphic Light Form Styling */
+        .form-card { background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(162, 112, 255, 0.25); border-radius: 24px; padding: 40px; box-shadow: 0 20px 50px rgba(0,0,0,0.45); backdrop-filter: blur(15px); }
+        .form-card h3 { font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+        .form-card .form-subtitle { color: var(--text-muted); font-size: 14px; font-weight: 500; margin-bottom: 25px; }
+        
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 13px; color: #fff; letter-spacing: 0.5px; text-transform: uppercase; }
+        .form-group input { width: 100%; padding: 14px; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 10px; box-sizing: border-box; background: rgba(0, 0, 0, 0.2); color: #fff; font-size: 16px; transition: all 0.3s ease; }
+        .form-group input:focus { border-color: var(--accent-purple); outline: none; box-shadow: 0 0 10px rgba(162, 112, 255, 0.3); background: rgba(0, 0, 0, 0.4); }
+        
+        .hero-btn { width: 100%; display: block; background: var(--accent-purple); color: #0b0813; text-decoration: none; font-weight: 700; font-size: 16px; padding: 16px; border-radius: 10px; border: none; cursor: pointer; transition: all 0.3s ease; text-align: center; box-shadow: 0 0 20px var(--accent-glow); }
+        .hero-btn:hover { background: #b385ff; box-shadow: 0 0 30px rgba(162, 112, 255, 0.6); }
+        
+        .status-msg { margin-top: 20px; font-weight: bold; text-align: center; display: none; font-size: 15px; padding: 10px; border-radius: 8px; }
+        
+        .main-footer { padding: 40px 20px; text-align: center; border-top: 1px solid rgba(255, 255, 255, 0.03); font-size: 14px; color: rgba(255, 255, 255, 0.3); }
+    </style>
 </head>
 <body>
 
-    <header class="main-header" style="padding: 20px 0;">
+    <header class="main-header">
         <div class="logo-container">
             <a href="index.html">
-                <img src="images/FirstStepsLogo.png" alt="First Steps Logo" class="logo-img" style="max-height: 160px; width: auto; display: block; margin: 0 auto;">
+                <img src="images/FirstStepsLogo.png" alt="First Steps Logo" class="logo-img">
             </a>
         </div>
-        <nav class="nav-bubble" style="margin-top: 15px;">
+        <nav class="nav-bubble">
             <a href="index.html">Home</a>
             <a href="about.html">About Us</a>
             <a href="volunteer.html">Volunteer</a>
             <a href="donate.html">Donate</a>
-            <a href="contact.html">Contact Us</a>
+            <a href="contact.html" class="active">Contact Us</a>
         </nav>
     </header>
 
-    <main class="page-container" style="max-width: 1200px; margin: 0 auto; padding: 20px;">
+    <main class="page-container">
         <section class="hero-card">
             <h1>Request a Meeting</h1>
             <p>We are here to help you take your next steps. Fill out the short form below to schedule a meeting with our team. Let us know what resources or documentation you need assistance with, and we will connect with you as soon as possible.</p>
         </section>
 
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; margin-top: 40px; text-align: left;">
+        <div class="layout-grid">
             
-            <div style="background: rgba(255, 255, 255, 0.05); padding: 40px; border-radius: 24px; border: 1px solid rgba(255, 255, 255, 0.1); color: #fff;">
-                <h3 style="font-size: 24px; margin-bottom: 20px; color: #8a4fff;">What to Expect</h3>
-                <p style="margin-bottom: 15px;"><strong>• Private Consultation:</strong> Every meeting is completely confidential, safe, and focused entirely on your goals.</p>
-                <p style="margin-bottom: 15px;"><strong>• Tailored Action Plan:</strong> We will sit down with you to map out exactly how to secure your IDs, look into housing resources, or find job opportunities.</p>
-                <p style="margin-bottom: 25px;"><strong>• 100% Free:</strong> All meetings, resources, and administrative assistance provided by First Steps Initiative are entirely free.</p>
+            <div class="info-card">
+                <h3>What to Expect</h3>
+                <p><strong>• Private Consultation:</strong> Every meeting is completely confidential, safe, and focused entirely on your goals.</p>
+                <p><strong>• Tailored Action Plan:</strong> We will sit down with you to map out exactly how to secure your IDs, look into housing resources, or find job opportunities.</p>
+                <p><strong>• 100% Free:</strong> All meetings, resources, and administrative assistance provided by First Steps Initiative are entirely free.</p>
                 
-                <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 25px 0;">
+                <hr>
                 
-                <h3 style="font-size: 24px; margin-bottom: 15px; color: #8a4fff;">Direct Contact</h3>
-                <p style="margin-bottom: 10px;">Phone: <a href="tel:+15633469266" style="color: #8a4fff; text-decoration: none; font-weight: bold;">(563) 346-9266</a></p>
-                <p>Email: <a href="mailto:alowell@firststepsinitiative.org" style="color: #8a4fff; text-decoration: none; font-weight: bold; word-break: break-all;">alowell@firststepsinitiative.org</a></p>
+                <h3>Direct Contact</h3>
+                <p>Phone: <a href="tel:+15633469266" style="color: var(--accent-purple); text-decoration: none; font-weight: bold;">(563) 346-9266</a></p>
+                <p>Email: <a href="mailto:alowell@firststepsinitiative.org" style="color: var(--accent-purple); text-decoration: none; font-weight: bold; word-break: break-all;">alowell@firststepsinitiative.org</a></p>
             </div>
 
-            <div style="background: #ffffff; padding: 40px; border-radius: 24px; color: #000000; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
-                <h3 style="font-size: 24px; margin-bottom: 5px; color: #000;">Meeting Request Form</h3>
-                <p style="color: #666; font-size: 14px; margin-bottom: 25px; font-weight: 500;">
-                    How can we help you today?
-                </p>
+            <div class="form-card">
+                <h3>Meeting Request Form</h3>
+                <p class="form-subtitle">How can we help you today?</p>
 
                 <form id="meeting-form" action="https://formspree.io/f/xvzywwwg" method="POST">
-                    <div style="margin-bottom: 20px;">
-                        <label for="client-name" style="display: block; margin-bottom: 8px; font-weight: 600; font-size: 14px;">Your Name</label>
-                        <input type="text" id="client-name" name="name" required placeholder="Preferred Name" style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; background: #fff; color: #000; font-size: 16px;">
+                    <div class="form-group">
+                        <label for="client-name">Your Name</label>
+                        <input type="text" id="client-name" name="name" required placeholder="Preferred Name">
                     </div>
 
-                    <div style="margin-bottom: 20px;">
-                        <label for="contact-method" style="display: block; margin-bottom: 8px; font-weight: 600; font-size: 14px;">Best Way to Reach You</label>
-                        <input type="text" id="contact-method" name="contact_method" required placeholder="Phone number, email, or shelter location" style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; background: #fff; color: #000; font-size: 16px;">
+                    <div class="form-group">
+                        <label for="contact-method">Best Way to Reach You</label>
+                        <input type="text" id="contact-method" name="contact_method" required placeholder="Phone number, email, or shelter location">
                     </div>
 
-                    <div style="margin-bottom: 25px;">
-                        <label for="time-requested" style="display: block; margin-bottom: 8px; font-weight: 600; font-size: 14px;">Time and Day Requested</label>
-                        <input type="text" id="time-requested" name="time_day_requested" required placeholder="e.g., Tuesdays or Thursdays around 2 PM" style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; background: #fff; color: #000; font-size: 16px;">
+                    <div class="form-group">
+                        <label for="time-requested">Time and Day Requested</label>
+                        <input type="text" id="time-requested" name="time_day_requested" required placeholder="e.g., Tuesdays or Thursdays around 2 PM">
                     </div>
 
-                    <button type="submit" id="meeting-submit-btn" class="hero-btn" style="width: 100%; padding: 14px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 16px;">Submit Request</button>
-                    <p id="meeting-status" style="margin-top: 15px; font-weight: bold; text-align: center; display: none;"></p>
+                    <button type="submit" id="meeting-submit-btn" class="hero-btn">Submit Request</button>
+                    <p id="meeting-status" class="status-msg"></p>
                 </form>
             </div>
 
@@ -75,7 +122,7 @@
     </main>
 
     <footer class="main-footer">
-        <p>2026 First Steps Initiative. Helping today. Building tomorrow.</p>
+        <p>&copy; 2026 First Steps Initiative. Helping today. Building tomorrow.</p>
     </footer>
 
     <script>
@@ -88,7 +135,8 @@
             meetingBtn.disabled = true;
             meetingStatus.style.display = "block";
             meetingStatus.textContent = "Sending request...";
-            meetingStatus.style.color = "#8a4fff";
+            meetingStatus.style.color = "#a270ff";
+            meetingStatus.style.background = "rgba(162, 112, 255, 0.1)";
 
             const data = new FormData(event.target);
             fetch(event.target.action, {
@@ -99,15 +147,18 @@
                 if (response.ok) {
                     meetingStatus.textContent = "Thank you! Your meeting request has been submitted.";
                     meetingStatus.style.color = "#28a745";
+                    meetingStatus.style.background = "rgba(40, 167, 69, 0.1)";
                     meetingForm.reset();
                 } else {
                     meetingStatus.textContent = "Oops! Something went wrong. Please try again.";
                     meetingStatus.style.color = "#dc3545";
+                    meetingStatus.style.background = "rgba(220, 53, 69, 0.1)";
                 }
                 meetingBtn.disabled = false;
             }).catch(error => {
                 meetingStatus.textContent = "Oops! There was a problem submitting your form.";
                 meetingStatus.style.color = "#dc3545";
+                meetingStatus.style.background = "rgba(220, 53, 69, 0.1)";
                 meetingBtn.disabled = false;
             });
         });
